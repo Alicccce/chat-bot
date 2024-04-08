@@ -10,9 +10,9 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 reply_keyboard = [['/ошибся чатом', '/ready_plan'],
                   ['/person_plan', '/remind']]
-reply_keyboard2 = [['/задать самому', '/преложение бота']]
-reply_keyboard3 = [['/27-50 баллов', '/50-70 баллов'],
-                  ['/70-85 баллов', '/85-90+ баллов']]
+reply_keyboard2 = [['/yourself', '/suggestions_from_bot']]
+reply_keyboard3 = [['/27_50__scores', '/50_70__scores'],
+                  ['/70_85__scores', '/85_100__scores']]
 markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
 time_for_r = ReplyKeyboardMarkup(reply_keyboard2, one_time_keyboard=True)
 scores = ReplyKeyboardMarkup(reply_keyboard3, one_time_keyboard=True)
@@ -34,7 +34,7 @@ async def yourself(update, context):
     await update.message.reply_text('Самостоятельно')
 
 
-async def suggestion_from_bot(update, context):
+async def suggestions_from_bot(update, context):
     await update.message.reply_text('Вот так, вот так')
 
 
@@ -47,7 +47,7 @@ async def ready_plan(update, context):
 
 
 async def wrong(update, context):
-    await update.message.reply_text('Такое сделаем! w')
+    await update.message.reply_text('УЛЮЛЮ, уходи тогда')
 
 
 def main():
@@ -61,7 +61,7 @@ def main():
     application.add_handler(CommandHandler("wrong", wrong))
 
     application.add_handler(CommandHandler("yourself", yourself))
-    application.add_handler(CommandHandler("suggestion_from_bot", suggestion_from_bot))
+    application.add_handler(CommandHandler("suggestions_from_bot", suggestions_from_bot))
 
     application.run_polling()
 
