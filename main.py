@@ -8,7 +8,7 @@ BOT_TOKEN = '7131922662:AAFHddt6nU3S-olQtsV7g0dd_nHaMSNafv4'
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
-reply_keyboard = [['/ошибся чатом', '/ready_plan'],
+reply_keyboard = [['/wrong', '/ready_plan'],
                   ['/person_plan', '/remind']]
 reply_keyboard2 = [['/yourself', '/suggestions_from_bot']]
 reply_keyboard3 = [['/27_50__scores', '/50_70__scores'],
