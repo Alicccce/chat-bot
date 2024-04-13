@@ -17,7 +17,7 @@ markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
 time_for_r = ReplyKeyboardMarkup(reply_keyboard2, one_time_keyboard=True)
 scores = ReplyKeyboardMarkup(reply_keyboard3, one_time_keyboard=True)
 
-k = ''
+K = ''
 
 
 async def start(update, context):
@@ -48,45 +48,53 @@ async def suggestions_from_bot(update, context):
 
 
 async def first_response(update, context):
+    global K
     answer = update.message.text
     if 'недел' in answer:
-        k = 'нед'
-        await update.message.reply_text('В какой день? Напишите полное или сокращённое название.')
-    if ('раз' in answer or 'кажд' in answer) and 'день' in answer:
-        k = 'р_день'
-        await update.message.reply_text('В какое время? Напишите слово: утро(8:00), день(13:00), вечер(18:00) или ночь(01:00).')
-    if 'через' in answer:
-        k = 'ч_день'
+        if ('раз' in answer) or ('кажд' in answer) or \
+            ('Раз' in answer) or ('Кажд'in answer):
+            await update.message.reply_text('В какой день? Напишите полное или сокращённое название.')
+            K = 'нед'
+    if 'день' in answer:
+        if ('кажд' in answer) or ('раз' in answer) or \
+            ('Кажд' in answer) or ('Раз' in answer):
+            await update.message.reply_text('В какое время? Напишите слово: утро(8:00), день(13:00), вечер(18:00) или ночь(01:00).')
+            K = 'р_день'
+    if ('через' in answer) or ('Через' in answer):
         await update.message.reply_text('С какого начать? Напишите полное или сокращённое название.')
+        K = 'ч_день'
     return 2
 
 
 async def second_response(update, context):
-    await update.message.reply_text('проверка')
     day, time, dayy = '', '', ''
     week = ['вт', 'пн', 'чт', 'ср', 'сб', 'пт', 'вторник'
             'вс', 'четверг', 'понедельник', 'суббота',
-            'среда', 'вт', 'пятница', 'воскресенье']
-    sutki = ['утро', 'вечер', 'день', 'ночь', 'днём']
+            'среда', 'ВТ', 'пятница', 'ВТ', 'воскресенье',
+            'Вт', 'Пн', 'Чт', 'Ср', 'Сб', 'Пт', 'Вторник'
+            'Вс', 'Четверг', 'Понедельник', 'Суббота',
+            'Среда', 'ВТ', 'Пятница', 'ВТ', 'Воскресенье']
+    sutki = ['утро', 'вечер', 'день', 'ночь', 'днём',
+             'Утро', 'Вечер', 'День', 'Ночь', 'Днём']
     answer = update.message.text
-    if k == 'нед':
+    if K == 'нед':
         for i in week:
             if i in answer:
                 day = i
         await update.message.reply_text(f'Хорошо, буду напоминать вам каждый день, а именно - {day}')
-    elif k == 'р_день':
+    if K == 'р_день':
         for i in sutki:
             if i in answer:
                 time = i
-        if time == 'утро':
+        if time == 'утро' or time == 'Утро':
             await update.message.reply_text(f'Хорошо, буду напоминать вам каждый день около 8 утра.')
-        elif time == 'днём' or 'день':
+        elif time == 'днём' or time == 'день' or time == 'Днём' or time == 'День':
             await update.message.reply_text(f'Хорошо, буду напоминать вам каждый день в районе 13.')
-        elif time == 'вечер':
+        elif time == 'вечер' or time == 'Вечер':
             await update.message.reply_text(f'Хорошо, буду напоминать вам каждый день ближе к 18.')
-        elif time == 'ночь':
+        elif time == 'ночь' or time == 'Ночь':
             await update.message.reply_text(f'Хорошо, буду напоминать вам каждую ночь.')
-    elif k == 'ч_день':
+    if K == 'ч_день':
         for i in week:
             if i in answer:
                 dayy = i
@@ -122,7 +130,7 @@ async def ready_plan(update, context):
 
 
 async def wrong(update, context):
-    await update.message.reply_text('УЛЮЛЮ, уходи тогда')
+    await update.message.reply_text('УЛЮЛЮ, уходи тогда', reply_markup=ReplyKeyboardMarkup([['УЛЮЛЮ, уходи тогда']]))
 
 
 async def stop(update, context):
