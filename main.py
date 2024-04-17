@@ -1,21 +1,26 @@
-import logging
+import logging, time
+import asyncio, aioschedule
 from telegram.ext import Application, MessageHandler, filters
-from telegram.ext import CommandHandler, ConversationHandler
-from telegram import ReplyKeyboardMarkup
-
+from telegram.ext import CommandHandler, ConversationHandler, CallbackQueryHandler
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 BOT_TOKEN = '7131922662:AAFHddt6nU3S-olQtsV7g0dd_nHaMSNafv4'
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
-reply_keyboard = [['/wrong', '/ready_plan'],
-                  ['/person_plan', '/remind']]
-reply_keyboard2 = [['/yourself', '/suggestions_from_bot']]
-reply_keyboard3 = [['/27_50__scores', '/50_70__scores'],
-                  ['/70_85__scores', '/85_100__scores']]
-markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
-time_for_r = ReplyKeyboardMarkup(reply_keyboard2, one_time_keyboard=True)
-scores = ReplyKeyboardMarkup(reply_keyboard3, one_time_keyboard=True)
+
+
+
+reply_keyboard1 = [[InlineKeyboardButton("Готовый план", callback_data="ready_plan"),
+                InlineKeyboardButton("Персональный план", callback_data="percon_plan")],
+                    [InlineKeyboardButton("База заданий", callback_data="wrong"),
+                    InlineKeyboardButton("Напомнить", callback_data="remind")]]
+
+reply_keyboard3 = [[InlineKeyboardButton('27-50 баллов', callback_data='niz'), InlineKeyboardButton('50-70 баллов', callback_data='nser')],
+                  [InlineKeyboardButton('70-85 баллов', callback_data='vser'), InlineKeyboardButton('85-100 баллов', callback_data='verch')]]
+
+markup = InlineKeyboardMarkup(reply_keyboard1)
+scores = InlineKeyboardMarkup(reply_keyboard3)
 
 K = ''
 
@@ -24,22 +29,20 @@ async def start(update, context):
     user = update.effective_user
     await update.message.reply_html(rf"Привет, {user.mention_html()}! Я чат-бот Гриша, пришёл к вам с планеты Школяриус, чтобы помочь сдать экзамен по профильной математике! С чего начнём?",
                                     reply_markup=markup)
-    return 1
 
 
 async def help_command(update, context):
-    await update.message.reply_text("Я пока не умею помогать...")
+    await update.message.reply_text("С божьей помощью.. удачи!")
+
+
+async def job(update, message = 'Сообщение', n=1):
+    await update.message.reply_text("Сообщение (%s)" % n, message)
 
 
 async def remind(update, context):
-    await update.message.reply_text('Как тебе было бы удобнее?', reply_markup=time_for_r)
-
-async def yourself(update, context):
-    await update.message.reply_text('Самостоятельно')
-
-
-async def suggestions_from_bot(update, context):
-    await update.message.reply_text('Я могу предложить тебе три универсальных, по-моему, варианта: \n'
+    callback_query = update.callback_query
+    await callback_query.answer()
+    await callback_query.message.reply_text('Я готов предложить тебе три универсальных, по-моему, варианта: \n'
                                     '- раз в неделю \n'
                                     '- раз в день \n'
                                     '- через день \n'
@@ -67,6 +70,7 @@ async def first_response(update, context):
 
 
 async def second_response(update, context):
+    answer = update.message.text
     day, time, dayy = '', '', ''
     week = ['вт', 'пн', 'чт', 'ср', 'сб', 'пт', 'вторник'
             'вс', 'четверг', 'понедельник', 'суббота',
@@ -76,12 +80,12 @@ async def second_response(update, context):
             'Среда', 'ВТ', 'Пятница', 'ВТ', 'Воскресенье']
     sutki = ['утро', 'вечер', 'день', 'ночь', 'днём',
              'Утро', 'Вечер', 'День', 'Ночь', 'Днём']
-    answer = update.message.text
     if K == 'нед':
         for i in week:
             if i in answer:
                 day = i
         await update.message.reply_text(f'Хорошо, буду напоминать вам каждый день, а именно - {day}')
+        aioschedule.every().day.at("19:19").do(job, n=1)
     if K == 'р_день':
         for i in sutki:
             if i in answer:
@@ -105,32 +109,47 @@ async def second_response(update, context):
             await update.message.reply_text('Хорошо буду напоминать вам каждый чётный день недели. \n'
                                             '(вторник, четверг, суббота)')
 
-    return 3
+
+async def ready_plan(update, context):
+    callback_query = update.callback_query
+    await callback_query.answer()
+    await callback_query.message.reply_text('Я помогу, но, даже работая с готовым материалом, ты должен понимать, на что расчитываешь!', reply_markup=scores)
 
 
-async def third_response(update, context):
-    answer = update.message.text
+async def niz(update, context):
+    callback_query = update.callback_query
+    await callback_query.answer()
+    await callback_query.message.reply_text('2750')
 
 
-async def last_response(update, context):
-    answer = update.message.text
-    if '?' not in answer:
-        await update.message.reply_text("Понял вас")
-    else:
-        await update.message.reply_text("Извините, я не понял вас")
-    return ConversationHandler.END
+async def nser(update, context):
+    callback_query = update.callback_query
+    await callback_query.answer()
+    await callback_query.message.reply_text('5070')
+
+
+async def vser(update, context):
+    callback_query = update.callback_query
+    await callback_query.answer()
+    await callback_query.message.reply_text('7085')
+
+
+async def verch(update, context):
+    callback_query = update.callback_query
+    await callback_query.answer()
+    await callback_query.message.reply_text('85100')
 
 
 async def person_plan(update, context):
-    await update.message.reply_text('Такое сделаем! pp')
-
-
-async def ready_plan(update, context):
-    await update.message.reply_text('Я помогу, но, даже работая с готовым материалом, ты должен понимать, на что расчитываешь!', reply_markup=scores)
+    callback_query = update.callback_query
+    await callback_query.answer()
+    await callback_query.message.reply_text('Такое сделаем! pp')
 
 
 async def wrong(update, context):
-    await update.message.reply_text('УЛЮЛЮ, уходи тогда', reply_markup=ReplyKeyboardMarkup([['УЛЮЛЮ, уходи тогда']]))
+    callback_query = update.callback_query
+    await callback_query.answer()
+    await callback_query.message.reply_text("УЛЮЛЮ, уходи тогда")
 
 
 async def stop(update, context):
@@ -138,14 +157,13 @@ async def stop(update, context):
     return ConversationHandler.END
 
 
-conv_handler = ConversationHandler(
-        entry_points=[CommandHandler('suggestions_from_bot', suggestions_from_bot)],
+
+conv_handler1 = ConversationHandler(
+        entry_points=[CallbackQueryHandler(remind, pattern='remind')],
 
         states={
             1: [MessageHandler(filters.TEXT & ~filters.COMMAND, first_response)],
-            2: [MessageHandler(filters.TEXT & ~filters.COMMAND, second_response)],
-            3: [MessageHandler(filters.TEXT & ~filters.COMMAND, third_response)],
-            #4: [MessageHandler(filters.TEXT & ~filters.COMMAND, fourth_response)]
+            2: [MessageHandler(filters.TEXT & ~filters.COMMAND, second_response)]
         },
 
         fallbacks=[CommandHandler('stop', stop)])
@@ -155,18 +173,29 @@ def main():
     application = Application.builder().token(BOT_TOKEN).build()
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("help", help_command))
-    application.add_handler(conv_handler)
 
-    application.add_handler(CommandHandler("remind", remind))
-    application.add_handler(CommandHandler("person_plan", person_plan))
-    application.add_handler(CommandHandler("ready_plan", ready_plan))
-    application.add_handler(CommandHandler("wrong", wrong))
+    application.add_handler(CallbackQueryHandler(remind, pattern='remind'))
+    application.add_handler(conv_handler1)
 
-    application.add_handler(CommandHandler("yourself", yourself))
-    application.add_handler(CommandHandler("suggestions_from_bot", suggestions_from_bot))
+    application.add_handler(CallbackQueryHandler(person_plan, pattern='person_plan'))
+
+    application.add_handler(CallbackQueryHandler(ready_plan, pattern='ready_plan'))
+    application.add_handler(CallbackQueryHandler(niz, pattern='niz'))
+    application.add_handler(CallbackQueryHandler(nser, pattern='nser'))
+    application.add_handler(CallbackQueryHandler(vser, pattern='vser'))
+    application.add_handler(CallbackQueryHandler(verch, pattern='verch'))
+
+    application.add_handler(CallbackQueryHandler(wrong, pattern='wrong'))
+
+
 
     application.run_polling()
 
 
 if __name__ == '__main__':
     main()
+
+loop = asyncio.get_event_loop()
+while True:
+    loop.run_until_complete(aioschedule.run_pending())
+    time.sleep(0.1)
