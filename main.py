@@ -389,77 +389,96 @@ async def wrong(update, context):
 async def z112(update, context):
     callback_query = update.callback_query
     await callback_query.answer()
-    await callback_query.message.reply_text("Держи на разбор и отработку первой части три вебнарчика!\n"
+    await callback_query.message.reply_text("Держи на разбор и отработку первой части три вебнарчика и теорию по ней же!\n"
                                             "- https://youtu.be/DyDN94omS8I?si=LI9rqBUJ6ijXGPaU \n"
                                             "- https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9 \n"
                                             "- https://www.youtube.com/live/4wKw-BzjTUQ?si=ESjEwQUP4i1vQL1Z")
+    await callback_query.message.reply_document('pdf_theory_file/theory1.pdf')
+    await callback_query.message.reply_document('pdf_theory_file/theory2.pdf')
+    await callback_query.message.reply_document('pdf_theory_file/theory3.pdf')
+    await callback_query.message.reply_document('pdf_theory_file/theory4_5.pdf')
+    await callback_query.message.reply_document('pdf_theory_file/theory6_7.pdf')
+    await callback_query.message.reply_document('pdf_theory_file/theory8_12.pdf')
+    await callback_query.message.reply_document('pdf_theory_file/theory10.pdf')
+    await callback_query.message.reply_document('pdf_theory_file/theory11.pdf')
 
 
 async def z13(update, context):
     callback_query = update.callback_query
     await callback_query.answer()
     await callback_query.message.reply_text(
-        "Лови три крутых разбора тригонометрии, которая понадобится и в первой части, которую не стоит забывать.\n"
+        "Лови три крутых разбора тригонометрии, которая понадобится и в первой части, которую не стоит забывать. А также задания для практики!\n"
         "• https://youtu.be/H5w-Ppy5ez0?si=Vvx949txRgeRuSn3 \n"
         "• https://www.youtube.com/live/BZORLZhj388?si=zHa9T7KuC2_LWo6D \n"
         "• https://www.youtube.com/live/J-HwyFrwVbU?si=jisUKUGOoylGlEW1")
+    await callback_query.message.reply_document('pdf_file/number6.pdf')
+    await callback_query.message.reply_document('pdf_file/number7.pdf')
+    await callback_query.message.reply_document('pdf_file/number13.pdf')
 
 
 async def z14(update, context):
     callback_query = update.callback_query
     await callback_query.answer()
     await callback_query.message.reply_text(
-        "Лови классные разборы 14 задания, в которых не забывают и про 3 задание, ведь там основы стереометрии! \n"
+        "Лови классные разборы 14 задания, в которых не забывают и про 3 задание, ведь там основы стереометрии. А также задания для практики!\n"
         "• https://www.youtube.com/live/QIdzj5haquI?si=NWm27jl5593LSgew \n"
         "• https://youtube.com/playlist?list=PL3BJnp-dNqaza0FRUCDpuwRYXnoF9ySIc&si=C4K_wN8PW-FGISwS \n"
         "• https://www.youtube.com/live/eKpUiqUk1BI?si=kd4LTpB5l0zF19K3")
+    await callback_query.message.reply_document('pdf_file/number3.pdf')
+    await callback_query.message.reply_document('pdf_file/number14.pdf')
 
 
 async def z15(update, context):
     callback_query = update.callback_query
     await callback_query.answer()
-    await callback_query.message.reply_text("Держи классные видео разборы неравенств!\n"
+    await callback_query.message.reply_text("Держи классные видео разборы неравенств и задания для практики!\n"
                                             "• https://www.youtube.com/live/sjxLxV0rA1s?si=IzYLTMoTv7kZnAJA \n"
                                             "• https://youtu.be/eB0HFxJSXzA?si=0G3ELCDMHZ-ggh9u \n"
                                             "• https://www.youtube.com/live/OVjkcHzls_g?si=ojzYCBq2khYIupwM")
+    await callback_query.message.reply_document('pdf_file/number15.pdf')
 
 
 async def z16(update, context):
     callback_query = update.callback_query
     await callback_query.answer()
     await callback_query.message.reply_text(
-        "Вот два супер-вебинара по экономическим задачам. Всё на пальцах объясняют.\n"
+        "Вот два супер-вебинара по экономическим задачам. Всё на пальцах объясняют. И не забывай про прктику!\n"
         "• дифференцированный платёж - https://www.youtube.com/live/LUJcuxJtKBE?si=RuXsNqMG52rXUSTB \n"
         "• аннуитетный платёж - https://www.youtube.com/live/_YrXlFDEIw0?si=C5pA7F0xb8UT8GP6")
+    await callback_query.message.reply_document('pdf_file/number16.pdf')
 
 
 async def z17(update, context):
     callback_query = update.callback_query
     await callback_query.answer()
     await callback_query.message.reply_text(
-        "Лови жёсткие разборы планиматрии, в которых не забывают и про первое задание, ведь без такой основы не надо браться и за 17!:)\n"
+        "Лови жёсткие разборы планиматрии, в которых не забывают и про первое задание, ведь без такой основы не надо браться и за 17! Тренируй себя в практических заданиях:)\n"
         "• https://www.youtube.com/live/GWOGTZvRYjc?si=lTd4a2ZebPZny0a4 \n"
         "• https://youtu.be/nMhVd0kXvVY?si=sMPvA1Yx_B06_qN2 \n"
         "• https://www.youtube.com/live/geuUNU6fy4E?si=Yp1chrOtlEIDx98N")
+    await callback_query.message.reply_document('pdf_file/number1.pdf')
+    await callback_query.message.reply_document('pdf_file/number17.pdf')
 
 
 async def z18(update, context):
     callback_query = update.callback_query
     await callback_query.answer()
     await callback_query.message.reply_text(
-        "Теперь у тебя есть подробные разборы 18 задания. Проводи время с толком;) \n"
+        "Теперь у тебя есть подробные разборы 18 задания. Проводи время с толком и с практикой;) \n"
         "• https://youtube.com/playlist?list=PL3BJnp-dNqaw31jYk5qqKX7ivCdWwPYRZ&si=n15mo7E1XiF2O64f \n"
         "• https://www.youtube.com/live/JJT28hxRvP0?si=9UcGGCntKfcUqmcU \n"
         "• https://www.youtube.com/live/t3NTVw73rvw?si=VyOIfqFizMeUfQeG + https://www.youtube.com/live/U-jw8tTBZu4?si=EFT9r8YV52oz9LH4")
+    await callback_query.message.reply_document('pdf_file/number18.pdf')
 
 
 async def z19(update, context):
     callback_query = update.callback_query
     await callback_query.answer()
-    await callback_query.message.reply_text("Жёстко ботаем 19 задание! Лови вебинары. \n"
+    await callback_query.message.reply_text("Жёстко ботаем 19 задание! Лови вебинары и задания на практику.\n"
                                             "• https://www.youtube.com/live/xHj_NbgOWiY?si=JdLYcpt7lq9a4wqp \n"
                                             "• https://youtube.com/playlist?list=PL3BJnp-dNqazRHFnGVeZBDi7M5h9gdGxk&si=BPIE9PdJEABob2RP \n"
                                             "• https://www.youtube.com/live/A7Qrm63EdEI?si=LDUZgeUldmMyBuBJ")
+    await callback_query.message.reply_document('pdf_file/number19.pdf')
 
 
 async def stop(update, context):
