@@ -221,13 +221,47 @@ async def geometria(update, context): # 1, 2, 3, 14, 17
     callback_query = update.callback_query
     await callback_query.answer()
     if K2 == 2750:
-        await callback_query.message.reply_text()
+        await callback_query.message.reply_text(
+            'Знаешь лучше геометрию, значит надо подтянуть алгебру! Затачивай 4-12 номера! \n\n'
+            'Смотри два-три разбора в неделю 4-12 заданиям (ниже по ним вебинары), один на повтор по геометрии и ещё один по всей первой части. Вот неплохие вебинары на решение различных прототипов:\n'
+            '- https://youtu.be/H5w-Ppy5ez0?si=dxIP436_vP_epd69\n'
+            '- https://www.youtube.com/live/0aGIDlgzHCU?si=m7SdbUmITtncpUap\n'
+            '- https://www.youtube.com/live/oRWQtlPOyww?si=4N-UAkdvXP7C_uJS\n'
+            '- https://youtu.be/17axkC5JxFM?si=R3zdp0m4kHhbHa9g\n'
+            '- https://youtu.be/qHKEcOJ_Z3U?si=dsPJSfwPpmVRquZe\n\n'
+            'И не забывай продолжать работать над геометрией, ещё пока не время расслабляться, даже если хорошо получается. С целью 27-50 баллов лучше набивать руку на первую часть.\n'
+            'https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9')
     if K2 == 5070:
-        await callback_query.message.reply_text()
+        await callback_query.message.reply_text(
+            'Знаешь лучше геометрию, значит надо подтянуть алгебру! Затачивай 4-12 номера и тренируйся в решении 13, 15, 16, чтобы получить желаемый результат:) \n\n'
+            'Уделяй хотя бы три дня разбору заданий, практике по тому, в чём ты не слишком силён и ещё день на повторы.\n'
+            '13 задание - https://www.youtube.com/live/ygd5VKNjRiQ?si=TSC9rsNk2Pyiynkk\n'
+            '15 задание - https://youtu.be/eB0HFxJSXzA?si=0G3ELCDMHZ-ggh9u, https://www.youtube.com/live/OVjkcHzls_g?si=ojzYCBq2khYIupwM\n'
+            '16 задание - https://www.youtube.com/live/1UFpGeuXPNE?si=piETyUIoBXbQbzGk\n'
+            'повтор - https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9')
     if K2 == 7085:
-        await callback_query.message.reply_text('\n')
+        await callback_query.message.reply_text(
+            'А ты хорош! Надо много работать на такой результат. Раз лучше знаешь геометрию, нужно большее внимание уделить алгебре, но и работать над тем, что хорошо получается.\n\n'
+            'Предлагаю два дня уделять заданиям 13, 15, 16, два - 14, 17, один - первой части\n'
+            '13 задание - https://www.youtube.com/live/ygd5VKNjRiQ?si=TSC9rsNk2Pyiynkk'
+            '15 задание -  https://youtu.be/eB0HFxJSXzA?si=0G3ELCDMHZ-ggh9u\n'
+            '16 задание - https://www.youtube.com/live/1UFpGeuXPNE?si=piETyUIoBXbQbzGk\n'
+            '14 задание - https://www.youtube.com/live/eJAc8z0DjrY?si=7JaVERKevmcBs9np\n'
+            '17 задание - https://www.youtube.com/live/tlOTaiad36Q?si=Sp2_Z07Ai4SWRkBp\n'
+            'первая часть - https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9\n\n'
+            'Но я думаю, есть резон познакомиться и с 18 заданием. Если разобраться, оно бывает не очень сложным, а приносит целых 4 балла:)\n'
+            '18 задание - https://youtube.com/playlist?list=PL3BJnp-dNqaw31jYk5qqKX7ivCdWwPYRZ&si=n15mo7E1XiF2O64f, https://www.youtube.com/live/t3NTVw73rvw?si=VyOIfqFizMeUfQeG + https://www.youtube.com/live/U-jw8tTBZu4?si=EFT9r8YV52oz9LH4\n')
     if K2 == 85100:
-        await callback_query.message.reply_text('85100')
+        await callback_query.message.reply_text(
+            'Ого! Вот это цели! Так держать. Раз лучше знаешь геометрию, нужно большее внимание уделить алгебре, но я советую не пропускать 17 и 14 задания в подготовке, если лучше с геометрией, то здорово было бы получить по 3 балла за эти задания:)\n\n'
+            'Тебе решать и решать. По три дня в неделю разбирать 13, 15, 16, в отдельные два-три дня разбирать 18 и 19, а также два дня на тренировку первой части и двух заданий на геометрию из второй!'
+            'разбор 13, 15, 16 - https://www.youtube.com/live/sXEJWaOZeGs?si=Wy3P5kkuUtm5Iv2X, https://www.youtube.com/live/eHTWv7sIpbI?si=xukbWDSloAtxBsx6, https://www.youtube.com/live/svbIsEvFhdw?si=bC5mpmJGzx20qJqU, https://www.youtube.com/live/I2RTzRXVaKU?si=t8Y7zL8CwDUODvmX\n'
+            '18 задание - https://youtube.com/playlist?list=PL3BJnp-dNqaw31jYk5qqKX7ivCdWwPYRZ&si=n15mo7E1XiF2O64f, https://www.youtube.com/live/t3NTVw73rvw?si=VyOIfqFizMeUfQeG + https://www.youtube.com/live/U-jw8tTBZu4?si=EFT9r8YV52oz9LH4\n'
+            '19 задание - https://youtube.com/playlist?list=PL3BJnp-dNqazRHFnGVeZBDi7M5h9gdGxk&si=BPIE9PdJEABob2RP\n'
+            '😄💪\n'
+            'первая часть - https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9\n'
+            '14 задание -  https://youtube.com/playlist?list=PL3BJnp-dNqaza0FRUCDpuwRYXnoF9ySIc&si=C4K_wN8PW-FGISwS\n'
+            '17 задание - https://youtube.com/playlist?list=PL3BJnp-dNqaz5YJeBpJugoQ7FkyL0HxS9&si=iuOHpxih1grtmVVB + https://www.youtube.com/live/axMFeOWP6x8?si=MY7QzcCSSKVgiWfv\n')
 
 
 async def alll(update, context):
@@ -235,35 +269,40 @@ async def alll(update, context):
     await callback_query.answer()
     if K2 == 2750:
         await callback_query.message.reply_text(
-            'Конечно, тренируем перввую часть, решив полносью её правильно можно получить до 60-70 баллов, представляешь! Смотри эти разборы:\n'
+            'Даже если всё знаешь, не переставай тренировать первую часть, решив её полносью правильно можно получить до 60-70 баллов, представляешь! Смотри эти разборы:\n'
             '- https://youtu.be/DyDN94omS8I?si=LI9rqBUJ6ijXGPaU\n'
             '- https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9\n'
             '- https://www.youtube.com/live/4wKw-BzjTUQ?si=ESjEwQUP4i1vQL1Z\n'
+            'Но можно подстраховаться для такого результата и разобрать 13 задание, за которое дают 2 балла (https://www.youtube.com/live/ygd5VKNjRiQ?si=TSC9rsNk2Pyiynkk).\n'
             'Удачи:):):):):)')
     if K2 == 5070:
         await callback_query.message.reply_text(
-            'Конечно, мы начинаем с первой части, решив полносью её правильно можно получить до 60-70 баллов, представляешь! Для этого разборы по первой части:\n'
+            'Даже если всё знаешь, не переставай тренировать первую часть, решив её полносью правильно можно получить до 60-70 баллов, представляешь! Смотри эти разборы:\n'
             '- https://youtu.be/DyDN94omS8I?si=LI9rqBUJ6ijXGPaU\n'
             '- https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9\n'
             '- https://www.youtube.com/live/4wKw-BzjTUQ?si=ESjEwQUP4i1vQL1Z\n'
-            'Но чем больше, тем лучше, подстрахуйся и потренируй 13, 15, они не слишком сложные.\n'
-            '13 задание - https://www.youtube.com/live/ygd5VKNjRiQ?si=TSC9rsNk2Pyiynkk'
+            'Но чем больше, тем лучше, потренируй 13, 15, они не слишком сложные. Разбирай 16 задание, 17, в котором пункт а) часто нетрудный\n'
+            '13 задание - https://www.youtube.com/live/ygd5VKNjRiQ?si=TSC9rsNk2Pyiynkk\n'
             '15 задание - https://youtu.be/eB0HFxJSXzA?si=0G3ELCDMHZ-ggh9u, https://www.youtube.com/live/OVjkcHzls_g?si=ojzYCBq2khYIupwM\n'
+            '16 задание - https://www.youtube.com/live/1UFpGeuXPNE?si=piETyUIoBXbQbzGk\n'
+            '17 задание - https://www.youtube.com/live/GWOGTZvRYjc?si=lTd4a2ZebPZny0a4\n'
             'Выдели для подготовки 3+ дня. Удачи:):):):):)')
     if K2 == 7085:
         await callback_query.message.reply_text(
-            'Вот это цели! Конечно, мы начинаем с первой части, решив полносью её правильно можно получить до 60-70 баллов, представляешь! Для этого разборы по первой части:\n'
+            'Вот это цели! Не забывай про первую часть, даже если думаешь, что всё знаешь, решив её полносью правильно можно получить до 60-70 баллов, представляешь! Для этого разборы по первой части:\n'
             '- https://youtu.be/DyDN94omS8I?si=LI9rqBUJ6ijXGPaU\n'
             '- https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9\n'
             '- https://www.youtube.com/live/4wKw-BzjTUQ?si=ESjEwQUP4i1vQL1Z\n'
             'Чем больше работаешь, тем выше результат, для достижения 70-85 баллов нужно точно уметь решать 13, 15 и 16 задания, а также можно браться за пункт а) 17 или 19 задания.\n'
             '13 задание - https://www.youtube.com/live/ygd5VKNjRiQ?si=TSC9rsNk2Pyiynkk, https://www.youtube.com/live/Xx9v3PDEt4s?si=EoABsdPa4--3WcYV\n'
             '15 задание - https://youtu.be/eB0HFxJSXzA?si=0G3ELCDMHZ-ggh9u, https://www.youtube.com/live/OVjkcHzls_g?si=ojzYCBq2khYIupwM\n'
-            '16 задание - все типы https://www.youtube.com/live/1UFpGeuXPNE?si=piETyUIoBXbQbzGk, диффдифференцированный https://www.youtube.com/live/LUJcuxJtKBE?si=RuXsNqMG52rXUSTB, аннуитетный https://www.youtube.com/live/_YrXlFDEIw0?si=C5pA7F0xb8UT8GP6'
+            '16 задание - все типы https://www.youtube.com/live/1UFpGeuXPNE?si=piETyUIoBXbQbzGk, диффдифференцированный https://www.youtube.com/live/LUJcuxJtKBE?si=RuXsNqMG52rXUSTB, аннуитетный https://www.youtube.com/live/_YrXlFDEIw0?si=C5pA7F0xb8UT8GP6\n'
+            '17 задание - https://www.youtube.com/live/GWOGTZvRYjc?si=lTd4a2ZebPZny0a4\n'
+            '19 задание - https://www.youtube.com/live/xHj_NbgOWiY?si=JdLYcpt7lq9a4wqp\n'
             'Тренируйся хотя бы 4 дня в неделю, не забывая отдыхать. Удачи:):):):):)')
     if K2 == 85100:
         await callback_query.message.reply_text(
-            'Ох, надо усердно работать для такого результата. Давай начинать:)\n Конечно, поначалу с первой части, решив полносью её правильно можно получить до 70 баллов, представляешь! Для этого разборы по первой части:\n'
+            'Ох, надо усердно работать для такого результата. Твоя уверенность в себе - это хорошо!\n Не забывай про первую часть, решив её полносью правильно можно получить до 60-70 баллов, представляешь! Для этого разборы по первой части:\n'
             '- https://youtu.be/DyDN94omS8I?si=LI9rqBUJ6ijXGPaU\n'
             '- https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9\n'
             '- https://www.youtube.com/live/4wKw-BzjTUQ?si=ESjEwQUP4i1vQL1Z\n'
@@ -275,7 +314,7 @@ async def alll(update, context):
             '17 задание - https://youtube.com/playlist?list=PL3BJnp-dNqaz5YJeBpJugoQ7FkyL0HxS9&si=iuOHpxih1grtmVVB\n'
             '18 задание - https://youtube.com/playlist?list=PL3BJnp-dNqaw31jYk5qqKX7ivCdWwPYRZ&si=n15mo7E1XiF2O64f, https://www.youtube.com/live/JJT28hxRvP0?si=9UcGGCntKfcUqmcU, https://www.youtube.com/live/t3NTVw73rvw?si=VyOIfqFizMeUfQeG + https://www.youtube.com/live/U-jw8tTBZu4?si=EFT9r8YV52oz9LH4\n'
             '19 задание - https://www.youtube.com/live/xHj_NbgOWiY?si=JdLYcpt7lq9a4wqp, https://youtube.com/playlist?list=PL3BJnp-dNqazRHFnGVeZBDi7M5h9gdGxk&si=BPIE9PdJEABob2RP, https://www.youtube.com/live/A7Qrm63EdEI?si=LDUZgeUldmMyBuBJ\n'
-            'Тренируйся хотя бы 4 дня в неделю, не забывая отдыхать. Удачи:):):):):)')
+            'Тренируйся хотя бы 4 дня в неделю, не забывая отдыхать. Всё получается сейчас, получится и потом! Удачи:):):):):)')
 
 
 async def noth(update, context):
@@ -283,7 +322,7 @@ async def noth(update, context):
     await callback_query.answer()
     if K2 == 2750:
         await callback_query.message.reply_text(
-            'Конечно, тренируем перввую часть, решив полносью её правильно можно получить до 60-70 баллов, представляешь! Смотри эти разборы:\n'
+            'Конечно, тренируем первую часть, решив полносью её правильно можно получить до 60-70 баллов, представляешь! Смотри эти разборы:\n'
             '- https://youtu.be/DyDN94omS8I?si=LI9rqBUJ6ijXGPaU\n'
             '- https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9\n'
             '- https://www.youtube.com/live/4wKw-BzjTUQ?si=ESjEwQUP4i1vQL1Z\n'
@@ -307,11 +346,13 @@ async def noth(update, context):
             'Чем больше работаешь, тем выше результат, для достижения 70-85 баллов нужно точно уметь решать 13, 15 и 16 задания, а также можно браться за пункт а) 17 или 19 задания.\n'
             '13 задание - https://www.youtube.com/live/ygd5VKNjRiQ?si=TSC9rsNk2Pyiynkk, https://www.youtube.com/live/Xx9v3PDEt4s?si=EoABsdPa4--3WcYV\n'
             '15 задание - https://youtu.be/eB0HFxJSXzA?si=0G3ELCDMHZ-ggh9u, https://www.youtube.com/live/OVjkcHzls_g?si=ojzYCBq2khYIupwM\n'
-            '16 задание - все типы https://www.youtube.com/live/1UFpGeuXPNE?si=piETyUIoBXbQbzGk, диффдифференцированный https://www.youtube.com/live/LUJcuxJtKBE?si=RuXsNqMG52rXUSTB, аннуитетный https://www.youtube.com/live/_YrXlFDEIw0?si=C5pA7F0xb8UT8GP6'
+            '16 задание - все типы https://www.youtube.com/live/1UFpGeuXPNE?si=piETyUIoBXbQbzGk, диффдифференцированный https://www.youtube.com/live/LUJcuxJtKBE?si=RuXsNqMG52rXUSTB, аннуитетный https://www.youtube.com/live/_YrXlFDEIw0?si=C5pA7F0xb8UT8GP6\n'
+            '17 задание - https://www.youtube.com/live/GWOGTZvRYjc?si=lTd4a2ZebPZny0a4\n'
+            '19 задание - https://www.youtube.com/live/xHj_NbgOWiY?si=JdLYcpt7lq9a4wqp\n'
             'Тренируйся хотя бы 4 дня в неделю, не забывая отдыхать. Удачи:):):):):)')
     if K2 == 85100:
         await callback_query.message.reply_text(
-            'Ох, надо усердно работать для такого результата. Давай начинать:)\n Конечно, поначалу с первой части, решив полносью её правильно можно получить до 70 баллов, представляешь! Для этого разборы по первой части:\n'
+            'Ох, надо усердно работать для такого результата. Давай начинать:)\n Конечно, поначалу с первой части, решив полносью её правильно можно получить до 60-70 баллов, представляешь! Для этого разборы по первой части:\n'
             '- https://youtu.be/DyDN94omS8I?si=LI9rqBUJ6ijXGPaU\n'
             '- https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9\n'
             '- https://www.youtube.com/live/4wKw-BzjTUQ?si=ESjEwQUP4i1vQL1Z\n'
@@ -324,12 +365,6 @@ async def noth(update, context):
             '18 задание - https://youtube.com/playlist?list=PL3BJnp-dNqaw31jYk5qqKX7ivCdWwPYRZ&si=n15mo7E1XiF2O64f, https://www.youtube.com/live/JJT28hxRvP0?si=9UcGGCntKfcUqmcU, https://www.youtube.com/live/t3NTVw73rvw?si=VyOIfqFizMeUfQeG + https://www.youtube.com/live/U-jw8tTBZu4?si=EFT9r8YV52oz9LH4\n'
             '19 задание - https://www.youtube.com/live/xHj_NbgOWiY?si=JdLYcpt7lq9a4wqp, https://youtube.com/playlist?list=PL3BJnp-dNqazRHFnGVeZBDi7M5h9gdGxk&si=BPIE9PdJEABob2RP, https://www.youtube.com/live/A7Qrm63EdEI?si=LDUZgeUldmMyBuBJ\n'
             'Тренируйся хотя бы 4 дня в неделю, не забывая отдыхать. Удачи:):):):):)')
-
-
-async def person_plan(update, context):
-    callback_query = update.callback_query
-    await callback_query.answer()
-    await callback_query.message.reply_text('Такое сделаем!')
 
 
 async def wrong(update, context):
@@ -434,7 +469,9 @@ def main():
     application.add_handler(conv_handler1)
     application.add_handler(CallbackQueryHandler(remind, pattern='remind'))
 
-    application.add_handler(CallbackQueryHandler(person_plan, pattern='person_plan'))
+    #application.add_handler(conv_handler2)
+    #application.add_handler(CallbackQueryHandler(person_plan, pattern='person_plan'))
+    #application.add_handler(CallbackQueryHandler(check_number, pattern='check_number'))
 
     application.add_handler(CallbackQueryHandler(ready_plan, pattern='ready_plan'))
     application.add_handler(CallbackQueryHandler(niz, pattern='niz'))
@@ -464,7 +501,7 @@ def main():
 if __name__ == '__main__':
     main()
 
-loop = asyncio.get_event_loop()
+'''loop = asyncio.get_event_loop()
 while True:
     loop.run_until_complete(aioschedule.run_pending())
-    time.sleep(0.1)
+    time.sleep(0.1)'''
