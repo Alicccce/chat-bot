@@ -3,7 +3,7 @@ import logging, time
 from telegram.ext import Application, MessageHandler, filters
 from telegram.ext import CommandHandler, ConversationHandler, CallbackQueryHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from fun import person_plan, chek_numder
+from fun import person_plan, chek_numder, merge_pdf
 
 BOT_TOKEN = '7131922662:AAFHddt6nU3S-olQtsV7g0dd_nHaMSNafv4'
 logging.basicConfig(
@@ -285,14 +285,25 @@ conv_handler1 = ConversationHandler(
     fallbacks=[CommandHandler('stop', stop)])
 
 
+conv_handler2 = ConversationHandler(
+    entry_points=[CallbackQueryHandler(person_plan, pattern='person_plan')],
+
+    states={
+        5: [MessageHandler(filters.TEXT & ~filters.COMMAND, chek_numder)]
+    },
+
+    fallbacks=[CommandHandler('stop', stop)])
+
+
 def main():
     application = Application.builder().token(BOT_TOKEN).build()
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("help", help_command))
 
     application.add_handler(conv_handler1)
+    application.add_handler(conv_handler2)
     application.add_handler(CallbackQueryHandler(remind, pattern='remind'))
-
+    application.add_handler(CallbackQueryHandler(person_plan, pattern='chek_numder'))
     application.add_handler(CallbackQueryHandler(person_plan, pattern='person_plan'))
 
     application.add_handler(CallbackQueryHandler(ready_plan, pattern='ready_plan'))
