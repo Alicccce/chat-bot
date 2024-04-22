@@ -33,10 +33,14 @@ reply_keyboard4 = [[InlineKeyboardButton('Первая часть', callback_dat
                    [InlineKeyboardButton('16 задание', callback_data='z16'),
                     InlineKeyboardButton('19 задание', callback_data='z19')]]
 
+reply_keyboard5 = [[InlineKeyboardButton('Давай в начало', callback_data='nachalo'),
+                    InlineKeyboardButton('Нет, пока', callback_data='byee')]]
+
 markup = InlineKeyboardMarkup(reply_keyboard1)
 scores = InlineKeyboardMarkup(reply_keyboard2)
 alg_geom = InlineKeyboardMarkup(reply_keyboard3)
 zdn = InlineKeyboardMarkup(reply_keyboard4)
+nazad = InlineKeyboardMarkup(reply_keyboard5)
 
 K1, K2 = '', ''  # переменные для запоминания необходимых данных
 
@@ -50,6 +54,21 @@ async def start(update, context):
 
 async def help_command(update, context):
     await update.message.reply_text("С божьей помощью.. удачи!")
+
+
+async def nachalo(update, context):
+    user = update.effective_user
+    callback_query = update.callback_query
+    await callback_query.answer()
+    await callback_query.message.reply_html(
+        rf"Привет, {user.mention_html()}! Я чат-бот Гриша, пришёл к вам с планеты Школяриус, чтобы помочь сдать экзамен по профильной математике! С чего начнём?",
+        reply_markup=markup)
+
+
+async def byee(update, context):
+    callback_query = update.callback_query
+    await callback_query.answer()
+    await callback_query.message.reply_text('Рад был помочь, обращайтесь. До свидания!')
 
 
 async def remind(update, context):
@@ -138,6 +157,7 @@ async def second_response(update, context):
         else:
             await update.message.reply_text('Хорошо буду напоминать вам каждый чётный день недели. \n'
                                             '(вторник, четверг, суббота)')
+    await update.message.reply_text('Ещё что-то?', reply_markup=nazad)
 
 
 async def ready_plan(update, context):
@@ -196,6 +216,7 @@ async def algebra(update, context):  # остальное
             '3 задание - https://youtu.be/UPa5fHk161k?si=UrMcTvS_7lW4sW9C \n\n'
             'И не забывай продолжать работать над алгеброй, ещё пока не время расслабляться, даже если хорошо получается. С целью 27-50 баллов лучше набивать руку на первую часть.\n'
             'https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
     if K2 == 5070:
         await callback_query.message.reply_text(
             'Знаешь лучше алгебру, значит надо подтянуть геометрию! Затачивай 1, 2, 3 номера и пробуй получать 1 балл за пункт а) в 17 задании:) \n\n'
@@ -207,6 +228,7 @@ async def algebra(update, context):  # остальное
             'повторы - https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9\n\n'
             'Но нельзя забывать про алгебру, например, решив 13 можно заработать достаточно легко 2 балла. Лови вебинарчик по разбору 13, разбирайся в нём хотя бы один раз в неделю;)\n'
             '13 задание - https://www.youtube.com/live/ygd5VKNjRiQ?si=TSC9rsNk2Pyiynkk')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
     if K2 == 7085:
         await callback_query.message.reply_text(
             'А ты хорош! Надо много работать на такой результат. Раз лучше знаешь алгебру, нужно большее внимание уделить геометрии, но и работать над тем, что хорошо получается.\n\n'
@@ -217,6 +239,7 @@ async def algebra(update, context):  # остальное
             '15 задание -  https://youtu.be/eB0HFxJSXzA?si=0G3ELCDMHZ-ggh9u\n'
             '18 задание - https://youtube.com/playlist?list=PL3BJnp-dNqaw31jYk5qqKX7ivCdWwPYRZ&si=n15mo7E1XiF2O64f, https://www.youtube.com/live/t3NTVw73rvw?si=VyOIfqFizMeUfQeG + https://www.youtube.com/live/U-jw8tTBZu4?si=EFT9r8YV52oz9LH4\n'
             'первая часть - https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9\n')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
     if K2 == 85100:
         await callback_query.message.reply_text(
             'Ого! Вот это цели! Так держать. Раз лучше знаешь алгебру, нужно большее внимание уделить геометрии, но я советую разбирать задание 19, если лучше с алгеброй, будет проще понять его:)\n\n'
@@ -228,6 +251,7 @@ async def algebra(update, context):  # остальное
             'повтор 13, 15, 16 - https://www.youtube.com/live/eHTWv7sIpbI?si=p1z-tvDo1y3BIwaH\n'
             '18 задание - https://youtube.com/playlist?list=PL3BJnp-dNqaw31jYk5qqKX7ivCdWwPYRZ&si=n15mo7E1XiF2O64f, https://www.youtube.com/live/t3NTVw73rvw?si=VyOIfqFizMeUfQeG + https://www.youtube.com/live/U-jw8tTBZu4?si=EFT9r8YV52oz9LH4\n'
             '19 задание - https://youtube.com/playlist?list=PL3BJnp-dNqazRHFnGVeZBDi7M5h9gdGxk&si=BPIE9PdJEABob2RP')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
 
 
 async def geometria(update, context):  # 1, 2, 3, 14, 17
@@ -244,6 +268,7 @@ async def geometria(update, context):  # 1, 2, 3, 14, 17
             '- https://youtu.be/qHKEcOJ_Z3U?si=dsPJSfwPpmVRquZe\n\n'
             'И не забывай продолжать работать над геометрией, ещё пока не время расслабляться, даже если хорошо получается. С целью 27-50 баллов лучше набивать руку на первую часть.\n'
             'https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
     if K2 == 5070:
         await callback_query.message.reply_text(
             'Знаешь лучше геометрию, значит надо подтянуть алгебру! Затачивай 4-12 номера и тренируйся в решении 13, 15, 16, чтобы получить желаемый результат:) \n\n'
@@ -252,6 +277,7 @@ async def geometria(update, context):  # 1, 2, 3, 14, 17
             '15 задание - https://youtu.be/eB0HFxJSXzA?si=0G3ELCDMHZ-ggh9u, https://www.youtube.com/live/OVjkcHzls_g?si=ojzYCBq2khYIupwM\n'
             '16 задание - https://www.youtube.com/live/1UFpGeuXPNE?si=piETyUIoBXbQbzGk\n'
             'повтор - https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
     if K2 == 7085:
         await callback_query.message.reply_text(
             'А ты хорош! Надо много работать на такой результат. Раз лучше знаешь геометрию, нужно большее внимание уделить алгебре, но и работать над тем, что хорошо получается.\n\n'
@@ -264,6 +290,7 @@ async def geometria(update, context):  # 1, 2, 3, 14, 17
             'первая часть - https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9\n\n'
             'Но я думаю, есть резон познакомиться и с 18 заданием. Если разобраться, оно бывает не очень сложным, а приносит целых 4 балла:)\n'
             '18 задание - https://youtube.com/playlist?list=PL3BJnp-dNqaw31jYk5qqKX7ivCdWwPYRZ&si=n15mo7E1XiF2O64f, https://www.youtube.com/live/t3NTVw73rvw?si=VyOIfqFizMeUfQeG + https://www.youtube.com/live/U-jw8tTBZu4?si=EFT9r8YV52oz9LH4\n')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
     if K2 == 85100:
         await callback_query.message.reply_text(
             'Ого! Вот это цели! Так держать. Раз лучше знаешь геометрию, нужно большее внимание уделить алгебре, но я советую не пропускать 17 и 14 задания в подготовке, если лучше с геометрией, то здорово было бы получить по 3 балла за эти задания:)\n\n'
@@ -275,6 +302,7 @@ async def geometria(update, context):  # 1, 2, 3, 14, 17
             'первая часть - https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9\n'
             '14 задание -  https://youtube.com/playlist?list=PL3BJnp-dNqaza0FRUCDpuwRYXnoF9ySIc&si=C4K_wN8PW-FGISwS\n'
             '17 задание - https://youtube.com/playlist?list=PL3BJnp-dNqaz5YJeBpJugoQ7FkyL0HxS9&si=iuOHpxih1grtmVVB + https://www.youtube.com/live/axMFeOWP6x8?si=MY7QzcCSSKVgiWfv\n')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
 
 
 async def alll(update, context):
@@ -288,6 +316,7 @@ async def alll(update, context):
             '- https://www.youtube.com/live/4wKw-BzjTUQ?si=ESjEwQUP4i1vQL1Z\n'
             'Но можно подстраховаться для такого результата и разобрать 13 задание, за которое дают 2 балла (https://www.youtube.com/live/ygd5VKNjRiQ?si=TSC9rsNk2Pyiynkk).\n'
             'Удачи:):):):):)')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
     if K2 == 5070:
         await callback_query.message.reply_text(
             'Даже если всё знаешь, не переставай тренировать первую часть, решив её полносью правильно можно получить до 60-70 баллов, представляешь! Смотри эти разборы:\n'
@@ -300,6 +329,7 @@ async def alll(update, context):
             '16 задание - https://www.youtube.com/live/1UFpGeuXPNE?si=piETyUIoBXbQbzGk\n'
             '17 задание - https://www.youtube.com/live/GWOGTZvRYjc?si=lTd4a2ZebPZny0a4\n'
             'Выдели для подготовки 3+ дня. Удачи:):):):):)')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
     if K2 == 7085:
         await callback_query.message.reply_text(
             'Вот это цели! Не забывай про первую часть, даже если думаешь, что всё знаешь, решив её полносью правильно можно получить до 60-70 баллов, представляешь! Для этого разборы по первой части:\n'
@@ -313,6 +343,7 @@ async def alll(update, context):
             '17 задание - https://www.youtube.com/live/GWOGTZvRYjc?si=lTd4a2ZebPZny0a4\n'
             '19 задание - https://www.youtube.com/live/xHj_NbgOWiY?si=JdLYcpt7lq9a4wqp\n'
             'Тренируйся хотя бы 4 дня в неделю, не забывая отдыхать. Удачи:):):):):)')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
     if K2 == 85100:
         await callback_query.message.reply_text(
             'Ох, надо усердно работать для такого результата. Твоя уверенность в себе - это хорошо!\n Не забывай про первую часть, решив её полносью правильно можно получить до 60-70 баллов, представляешь! Для этого разборы по первой части:\n'
@@ -328,6 +359,7 @@ async def alll(update, context):
             '18 задание - https://youtube.com/playlist?list=PL3BJnp-dNqaw31jYk5qqKX7ivCdWwPYRZ&si=n15mo7E1XiF2O64f, https://www.youtube.com/live/JJT28hxRvP0?si=9UcGGCntKfcUqmcU, https://www.youtube.com/live/t3NTVw73rvw?si=VyOIfqFizMeUfQeG + https://www.youtube.com/live/U-jw8tTBZu4?si=EFT9r8YV52oz9LH4\n'
             '19 задание - https://www.youtube.com/live/xHj_NbgOWiY?si=JdLYcpt7lq9a4wqp, https://youtube.com/playlist?list=PL3BJnp-dNqazRHFnGVeZBDi7M5h9gdGxk&si=BPIE9PdJEABob2RP, https://www.youtube.com/live/A7Qrm63EdEI?si=LDUZgeUldmMyBuBJ\n'
             'Тренируйся хотя бы 4 дня в неделю, не забывая отдыхать. Всё получается сейчас, получится и потом! Удачи:):):):):)')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
 
 
 async def noth(update, context):
@@ -340,6 +372,7 @@ async def noth(update, context):
             '- https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9\n'
             '- https://www.youtube.com/live/4wKw-BzjTUQ?si=ESjEwQUP4i1vQL1Z\n'
             'Удачи:):):):):)')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
     if K2 == 5070:
         await callback_query.message.reply_text(
             'Конечно, мы начинаем с первой части, решив полносью её правильно можно получить до 60-70 баллов, представляешь! Для этого разборы по первой части:\n'
@@ -350,6 +383,7 @@ async def noth(update, context):
             '13 задание - https://www.youtube.com/live/ygd5VKNjRiQ?si=TSC9rsNk2Pyiynkk'
             '15 задание - https://youtu.be/eB0HFxJSXzA?si=0G3ELCDMHZ-ggh9u, https://www.youtube.com/live/OVjkcHzls_g?si=ojzYCBq2khYIupwM\n'
             'Выдели для подготовки 3+ дня. Удачи:):):):):)')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
     if K2 == 7085:
         await callback_query.message.reply_text(
             'Вот это цели! Конечно, мы начинаем с первой части, решив полносью её правильно можно получить до 60-70 баллов, представляешь! Для этого разборы по первой части:\n'
@@ -363,6 +397,7 @@ async def noth(update, context):
             '17 задание - https://www.youtube.com/live/GWOGTZvRYjc?si=lTd4a2ZebPZny0a4\n'
             '19 задание - https://www.youtube.com/live/xHj_NbgOWiY?si=JdLYcpt7lq9a4wqp\n'
             'Тренируйся хотя бы 4 дня в неделю, не забывая отдыхать. Удачи:):):):):)')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
     if K2 == 85100:
         await callback_query.message.reply_text(
             'Ох, надо усердно работать для такого результата. Давай начинать:)\n Конечно, поначалу с первой части, решив полносью её правильно можно получить до 60-70 баллов, представляешь! Для этого разборы по первой части:\n'
@@ -378,6 +413,7 @@ async def noth(update, context):
             '18 задание - https://youtube.com/playlist?list=PL3BJnp-dNqaw31jYk5qqKX7ivCdWwPYRZ&si=n15mo7E1XiF2O64f, https://www.youtube.com/live/JJT28hxRvP0?si=9UcGGCntKfcUqmcU, https://www.youtube.com/live/t3NTVw73rvw?si=VyOIfqFizMeUfQeG + https://www.youtube.com/live/U-jw8tTBZu4?si=EFT9r8YV52oz9LH4\n'
             '19 задание - https://www.youtube.com/live/xHj_NbgOWiY?si=JdLYcpt7lq9a4wqp, https://youtube.com/playlist?list=PL3BJnp-dNqazRHFnGVeZBDi7M5h9gdGxk&si=BPIE9PdJEABob2RP, https://www.youtube.com/live/A7Qrm63EdEI?si=LDUZgeUldmMyBuBJ\n'
             'Тренируйся хотя бы 4 дня в неделю, не забывая отдыхать. Удачи:):):):):)')
+        await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
 
 
 async def wrong(update, context):
@@ -396,11 +432,12 @@ async def z112(update, context):
     await callback_query.message.reply_document('pdf_theory_file/theory1.pdf')
     await callback_query.message.reply_document('pdf_theory_file/theory2.pdf')
     await callback_query.message.reply_document('pdf_theory_file/theory3.pdf')
-    await callback_query.message.reply_document('pdf_theory_file/theory4_5.pdf')
-    await callback_query.message.reply_document('pdf_theory_file/theory6_7.pdf')
-    await callback_query.message.reply_document('pdf_theory_file/theory8_12.pdf')
+    await callback_query.message.reply_document('pdf_theory_file/theory4.pdf')
+    await callback_query.message.reply_document('pdf_theory_file/theory6.pdf')
+    await callback_query.message.reply_document('pdf_theory_file/theory8.pdf')
     await callback_query.message.reply_document('pdf_theory_file/theory10.pdf')
     await callback_query.message.reply_document('pdf_theory_file/theory11.pdf')
+    await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
 
 
 async def z13(update, context):
@@ -414,6 +451,7 @@ async def z13(update, context):
     await callback_query.message.reply_document('pdf_file/number6.pdf')
     await callback_query.message.reply_document('pdf_file/number7.pdf')
     await callback_query.message.reply_document('pdf_file/number13.pdf')
+    await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
 
 
 async def z14(update, context):
@@ -426,6 +464,7 @@ async def z14(update, context):
         "• https://www.youtube.com/live/eKpUiqUk1BI?si=kd4LTpB5l0zF19K3")
     await callback_query.message.reply_document('pdf_file/number3.pdf')
     await callback_query.message.reply_document('pdf_file/number14.pdf')
+    await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
 
 
 async def z15(update, context):
@@ -436,6 +475,7 @@ async def z15(update, context):
                                             "• https://youtu.be/eB0HFxJSXzA?si=0G3ELCDMHZ-ggh9u \n"
                                             "• https://www.youtube.com/live/OVjkcHzls_g?si=ojzYCBq2khYIupwM")
     await callback_query.message.reply_document('pdf_file/number15.pdf')
+    await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
 
 
 async def z16(update, context):
@@ -446,6 +486,7 @@ async def z16(update, context):
         "• дифференцированный платёж - https://www.youtube.com/live/LUJcuxJtKBE?si=RuXsNqMG52rXUSTB \n"
         "• аннуитетный платёж - https://www.youtube.com/live/_YrXlFDEIw0?si=C5pA7F0xb8UT8GP6")
     await callback_query.message.reply_document('pdf_file/number16.pdf')
+    await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
 
 
 async def z17(update, context):
@@ -458,6 +499,7 @@ async def z17(update, context):
         "• https://www.youtube.com/live/geuUNU6fy4E?si=Yp1chrOtlEIDx98N")
     await callback_query.message.reply_document('pdf_file/number1.pdf')
     await callback_query.message.reply_document('pdf_file/number17.pdf')
+    await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
 
 
 async def z18(update, context):
@@ -469,6 +511,7 @@ async def z18(update, context):
         "• https://www.youtube.com/live/JJT28hxRvP0?si=9UcGGCntKfcUqmcU \n"
         "• https://www.youtube.com/live/t3NTVw73rvw?si=VyOIfqFizMeUfQeG + https://www.youtube.com/live/U-jw8tTBZu4?si=EFT9r8YV52oz9LH4")
     await callback_query.message.reply_document('pdf_file/number18.pdf')
+    await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
 
 
 async def z19(update, context):
@@ -479,6 +522,7 @@ async def z19(update, context):
                                             "• https://youtube.com/playlist?list=PL3BJnp-dNqazRHFnGVeZBDi7M5h9gdGxk&si=BPIE9PdJEABob2RP \n"
                                             "• https://www.youtube.com/live/A7Qrm63EdEI?si=LDUZgeUldmMyBuBJ")
     await callback_query.message.reply_document('pdf_file/number19.pdf')
+    await callback_query.message.reply_text('Ещё что-то?', reply_markup=nazad)
 
 
 async def stop(update, context):
@@ -511,6 +555,9 @@ def main():
     application = Application.builder().token(BOT_TOKEN).build()
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("help", help_command))
+
+    application.add_handler(CallbackQueryHandler(nachalo, pattern='nachalo'))
+    application.add_handler(CallbackQueryHandler(byee, pattern='byee'))
 
     application.add_handler(conv_handler1)
     application.add_handler(CallbackQueryHandler(remind, pattern='remind'))
