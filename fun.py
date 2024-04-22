@@ -8,7 +8,6 @@ donee = InlineKeyboardMarkup(done)
 reply_keyboard5 = [[InlineKeyboardButton('Давай в начало', callback_data='nachalo'),
                     InlineKeyboardButton('Нет, пока', callback_data='byee')]]
 nazad = InlineKeyboardMarkup(reply_keyboard5)
-
 numder_for_person_plan = []
 
 
