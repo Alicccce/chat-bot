@@ -298,7 +298,7 @@ async def geometria(update, context):  # 1, 2, 3, 14, 17
             'разбор 13, 15, 16 - https://www.youtube.com/live/sXEJWaOZeGs?si=Wy3P5kkuUtm5Iv2X, https://www.youtube.com/live/eHTWv7sIpbI?si=xukbWDSloAtxBsx6, https://www.youtube.com/live/svbIsEvFhdw?si=bC5mpmJGzx20qJqU, https://www.youtube.com/live/I2RTzRXVaKU?si=t8Y7zL8CwDUODvmX\n'
             '18 задание - https://youtube.com/playlist?list=PL3BJnp-dNqaw31jYk5qqKX7ivCdWwPYRZ&si=n15mo7E1XiF2O64f, https://www.youtube.com/live/t3NTVw73rvw?si=VyOIfqFizMeUfQeG + https://www.youtube.com/live/U-jw8tTBZu4?si=EFT9r8YV52oz9LH4\n'
             '19 задание - https://youtube.com/playlist?list=PL3BJnp-dNqazRHFnGVeZBDi7M5h9gdGxk&si=BPIE9PdJEABob2RP\n'
-            '😄💪\n'
+            '😄💪\n '
             'первая часть - https://www.youtube.com/live/esUmA8mlJGc?si=2TQSp5fjnTHDO_j9\n'
             '14 задание -  https://youtube.com/playlist?list=PL3BJnp-dNqaza0FRUCDpuwRYXnoF9ySIc&si=C4K_wN8PW-FGISwS\n'
             '17 задание - https://youtube.com/playlist?list=PL3BJnp-dNqaz5YJeBpJugoQ7FkyL0HxS9&si=iuOHpxih1grtmVVB + https://www.youtube.com/live/axMFeOWP6x8?si=MY7QzcCSSKVgiWfv\n')
