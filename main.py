@@ -2,7 +2,7 @@ import logging
 from telegram.ext import Application, MessageHandler, filters
 from telegram.ext import CommandHandler, ConversationHandler, CallbackQueryHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from fun import person_plan, chek_numder, merge_pdf
+from fun import person_plan, chek_numder
 
 BOT_TOKEN = '7131922662:AAFHddt6nU3S-olQtsV7g0dd_nHaMSNafv4'
 logging.basicConfig(
