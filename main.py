@@ -4,7 +4,7 @@ from telegram.ext import CommandHandler, ConversationHandler, CallbackQueryHandl
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from fun import person_plan, chek_numder
 
-BOT_TOKEN = '7131922662:AAFHddt6nU3S-olQtsV7g0dd_nHaMSNafv4'
+BOT_TOKEN = 'BOT_TOKEN'
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
